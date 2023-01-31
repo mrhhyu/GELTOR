@@ -45,7 +45,7 @@ the best effectiveness with any datasets, it is highly recommended to perform an
 
 2- By using **bch_mnl** flag, you can input the batch size manually (i.e., **bch_mnl=True**) or to calculate it automatically as explained in the paper (i.e., **bch_mnl=False**), default is False; the latter case is recommended.
 
-3- It is recommended to set the regularization parameter 0.001 and 0.0001 with directed and undirected graphs, respectively.
+3- **It is recommended** to set the regularization parameter as 0.001 and 0.0001 with directed and undirected graphs, respectively.
 
 ### Sample:
 ```
