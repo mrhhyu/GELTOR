@@ -39,8 +39,7 @@ GELTOR has the following parameters:
 --wait_thr: Number of epochs with no loss improvement after which the training will be stopped, default is 20 
 --gpu: The flag indicating to run GELTOR on GPU, default is True
 ```
-### Note:
-
+### NOTE:
 1- By using **topk_mnl** flag, you can input topK value manually (i.e., **topk_mnl=True**) or to calculate it automatically as explained in the paper (i.e., **topk_mnl=False**), default is False. **It is worth to note that topk plays an important role in GELTOR; therefore, in order to obtain
 the best effectiveness with any datasets, it is highly recommended to perform an appropriate parameter tuning on topk as explained in the paper, Section 4.3.1.**
 
