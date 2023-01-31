@@ -4,7 +4,7 @@ This repository provides a reference implementation of GELTOR as well as access 
 
 ## Installation and usage
 GELTOR is a straightforward embedding method implemented by a simple deep neural network consisting of only a projection layer and an output layer.
-In order to run GELTOR, the following package are required:
+In order to run GELTOR, the following packageس are required:
 ```
 Python       >= 3.8
 tensorflow   >= 2.2
