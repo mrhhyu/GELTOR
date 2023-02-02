@@ -39,8 +39,9 @@ GELTOR has the following parameters:
 --gpu: The flag indicating to run GELTOR on GPU, default is True
 ```
 ### NOTE:
-1- By using **topk_mnl** flag, you can input topK value manually (i.e., **topk_mnl=True**) or to calculate it automatically as explained in the paper (i.e., **topk_mnl=False**), default is False. **It is worth to note that topk plays an important role in GELTOR; therefore, in order to obtain
-the best effectiveness with any datasets, it is highly recommended to perform an appropriate parameter tuning on topk as explained in the paper, Section 4.3.1.**
+1- By using **topk_mnl** flag, you can input topK value manually (i.e., **topk_mnl=True**) or to calculate it automatically as explained in the paper (i.e., **topk_mnl=False**), default is False; we suggest to set topk automatically. 
+
+**It is worth to note that topk plays an important role in GELTOR; therefore, in order to obtain the best effectiveness with any datasets, it is highly recommended to perform an appropriate parameter tuning on topk as explained in the paper, Section 4.3.1.**
 
 2- By using **bch_mnl** flag, you can input the batch size manually (i.e., **bch_mnl=True**) or to calculate it automatically as explained in the paper (i.e., **bch_mnl=False**), default is False; the latter case is recommended.
 
