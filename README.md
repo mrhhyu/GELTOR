@@ -43,7 +43,7 @@ GELTOR has the following parameters:
 
 **It is worth to note that topk plays an important role in GELTOR; therefore, in order to obtain the best effectiveness with any datasets, it is highly recommended to perform an appropriate parameter tuning on topk as explained in the paper, Section 4.3.1.**
 
-2- By using **bch_mnl** flag, you can input the batch size manually (i.e., **bch_mnl=True**) or calculate it automatically as explained in the paper (i.e., **bch_mnl=False**), the value default is False; we suggest to set the batch size automatically.
+2- By using **bch_mnl** flag, you can input the batch size manually (i.e., **bch_mnl=True**) or calculate it automatically as explained in the paper (i.e., **bch_mnl=False**), the default value is False; we suggest to set the batch size automatically.
 
 3- **It is recommended** to set the regularization parameter as 0.001 and 0.0001 with directed and undirected graphs, respectively.
 
