@@ -54,4 +54,6 @@ python GELTOR.py --graph data/DBLP/DBLP_directed_graph.txt --dataset_name DBLP
 ```
 python GELTOR.py --graph data/DBLP/DBLP_directed_graph.txt --dataset_name DBLP --topk_mnl True --topk 50 --bch_mnl True --bch 256
 ```
-## Citation
+## Citation:
+> Masoud Reyhani Hamedani, Jin-Su Ryu, and Sang-Wook Kim. 2023. GELTOR: A Graph Embedding Method based on Listwise Learning to Rank. In Proceedings of the ACM Web Conference 2023 (WWW ’23), April 30-May 4, 2023, Austin, TX, USA, 11 pages. https: //doi.org/10.1145/3543507.3583193 (will be available on May 2023)
+
