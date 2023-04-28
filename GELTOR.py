@@ -1,7 +1,7 @@
 '''
 Created on August 12, 2022
 
-@note Implementation GELTOR's DNN
+@note Implementation of our proposed method with maximum a posterior (MAP) estimator by considering the topK nodes
 
 @author: masoud
 '''
@@ -36,7 +36,6 @@ def get_model(dim,out_len, learning_rate, reg_rate):
     model.compile(optimizer = tf.keras.optimizers.RMSprop(learning_rate), loss = ListMLELoss_topK(), run_eagerly = True) # run_eagerly=True --> to enable getting Tensor values via .numpy()
     return model
 
-
 def LTRG(args):
     print()
     if args.topk_mnl and args.topk <= 0:
@@ -56,18 +55,18 @@ def LTRG(args):
 
     print('==================================================================== GELTOR ARGUMENTS ====================================================================')
     print(args,'\n')
-    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(args.topk)
 
     print('================================================================= Similarity Computation =================================================================')
     if args.topk_mnl:
-        top_indices,top_simvals = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
+        top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
     else:
-        top_indices,top_simvals = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=-1, loss='listMLE_topK')#[0]
+        top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=-1, loss='listMLE_topK')#[0]
 
     print('===================================================================== Model Training ======================================================================')
-    tf_input = tf.eye(len(top_indices), dtype='int32') # on-hot vectors as input
     if not args.bch_mnl: # calculating batch size for the input graph
         args.bch = pow(2, round(math.log2(len(top_indices)*0.05)))
+    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(args.topk)
+    tf_input = tf.eye(len(top_indices), dtype='int32') # on-hot vectors as input
     model = get_model(int(args.dim/2), len(top_indices), args.lr, args.reg)
     if args.early_stop: ## apply early stopping
         callback_EarlyStopping = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=args.wait_thr, mode='min', restore_best_weights=True) ## defines a callback for early stop
@@ -119,20 +118,21 @@ if __name__ == "__main__":
 
     args = parse_args()
     LTRG(args)
-    
+
     '''
 
-    args = parse_args(graph='data/DBLP/DBLP_directed_graph.txt',
-                  dataset_name='DBLP',
-                  result_dir='output/',
+
+    args = parse_args(graph='/home/masoud/backup_1/data/feature_learning/email_EU/dataset/train_test/email_EU_directed_graph.txt',
+                  dataset_name='email_EU',
+                  result_dir='result_test/',
                   dimension=128,
-                  topK=50,
-                  iterations=5,
-                  epochs=100,
-                  batch_size=1024,
+                  topK=20,
+                  iterations=6,
+                  epochs=10,
+                  batch_size=64,
                   learning_rate=0.0025,
                   reg_rate= 0.001,
-                  early_stop=True,
+                  early_stop=False,
                   wait_thr=20,
                   gpu_on=True
                   )
@@ -140,7 +140,4 @@ if __name__ == "__main__":
 
 
     '''
-
-
-
 
