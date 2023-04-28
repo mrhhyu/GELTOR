@@ -120,27 +120,6 @@ if __name__ == "__main__":
     args = parse_args()
     LTRG(args)
 
-    '''
-
-
-    args = parse_args(graph='/home/masoud/backup_1/data/feature_learning/email_EU/dataset/train_test/email_EU_directed_graph.txt',
-                  dataset_name='email_EU',
-                  result_dir='result_test/',
-                  dimension=128,
-                  topK=20,
-                  iterations=6,
-                  epochs=10,
-                  batch_size=64,
-                  learning_rate=0.0025,
-                  reg_rate= 0.001,
-                  early_stop=False,
-                  wait_thr=20,
-                  gpu_on=True
-                  )
-    LTRG(args)
-
-
-    '''
 
 
 
