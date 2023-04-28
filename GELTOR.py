@@ -119,6 +119,27 @@ if __name__ == "__main__":
 
     args = parse_args()
     LTRG(args)
+    
+    '''
+
+    args = parse_args(graph='data/DBLP/dataset/train_test/DBLP_directed_graph.txt',
+                  dataset_name='DBLP',
+                  result_dir='result_test/',
+                  dimension=128,
+                  topK=50,
+                  iterations=5,
+                  epochs=100,
+                  batch_size=1024,
+                  learning_rate=0.0025,
+                  reg_rate= 0.001,
+                  early_stop=True,
+                  wait_thr=20,
+                  gpu_on=True
+                  )
+    LTRG(args)
+
+
+    '''
 
 
 
