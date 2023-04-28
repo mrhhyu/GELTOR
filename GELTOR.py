@@ -124,7 +124,7 @@ if __name__ == "__main__":
 
     args = parse_args(graph='data/DBLP/dataset/DBLP_directed_graph.txt',
                   dataset_name='DBLP',
-                  result_dir='result_test/',
+                  result_dir='output/',
                   dimension=128,
                   topK=50,
                   iterations=5,
