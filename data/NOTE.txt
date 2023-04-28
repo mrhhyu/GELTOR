@@ -1,0 +1,2 @@
+This folder contains only the DBLP dataset and its related files (i.e., ground truth and test/train files).
+Other dataset are located in the data.zip.
