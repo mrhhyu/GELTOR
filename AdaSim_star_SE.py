@@ -16,12 +16,22 @@ import fetch_topK_SPARSE as prData
 
 def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, loss=''):
     '''
-        @param loss: indicates the loss function                
-            1- loss='listMLE_topK', the results are returned for TopK_ListMLE loss: 
+        @param loss: indicates the loss function
+            1- loss='listMLE', the results are returned for ListMLE loss:
+                top_indices is a |V|*|V| matrix contains the rank of each node regarding to a target node;
+                top_simvals is a |V|*|V| matrix contains the similarity score of each node regarding to a target node
+                
+            2- loss='listMLE_topK', the results are returned for TopK_ListMLE loss: 
                 top_indices is a |V|*topK matrix contains indices of topK nodes to each node
                 top_simvals is a |V|*topK matrix contains similarity values of topK nodes to each node
                 mask_ is a |V|*|V| matrix contains 'False' for topK similar nodes and 'True' for other nodes
-                            
+                
+            3- loss='at_Rank', the results are returned for Attention Rank loss: 
+                top_indices is a |V|*2*topK matrix contains [indices of topK nodes to each node] + [labels values 0, ..., Topk-1 normalized in range [0,1]]
+                top_simvals is a |V|*topK matrix contains similarity values of topK nodes to each node
+            
+            4- loss='listNET', the result is returned for listNET loss:
+                result_matrix is a |V|*|V| matrix contains the SoftMax (row-wise) of labels of each node regarding to a target node
     '''
     print("Starting AdaSim* with '{}' on '{}' iterations, top '{}', and C '{}'...".format(graph,iterations,topK,damping_factor)+'\n')
 
@@ -61,7 +71,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     if loss=='listMLE_topK':
         result_matrix.setdiag(1) ## set back diagonal values to one
         top_indices,top_simvals = prData.get_listMLE_topK(result_matrix,topK)
-        return top_indices,top_simvals
+        return top_indices,top_simvals, topK-1
                 
 
 def compute_only_AdaSim_star (graph='', iterations=0, damping_factor=0.8):
