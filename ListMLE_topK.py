@@ -7,7 +7,6 @@ Compute the listMLE loss function based on Top k (Statistical Consistency of Top
 '''
 import tensorflow as tf
 from tensorflow.keras.losses import Loss
-import time
 
 class ListMLELoss_topK(Loss):
     def __init__(self):
