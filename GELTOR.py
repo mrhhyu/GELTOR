@@ -1,7 +1,7 @@
 '''
 Created on August 12, 2022
 
-@note Implementation of our proposed method with maximum a posterior (MAP) estimator by considering the topK nodes
+@note Implementation GELTOR's DNN
 
 @author: masoud
 '''
