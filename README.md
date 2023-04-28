@@ -3,7 +3,7 @@
 This repository provides a reference implementation of GELTOR as well as access to the data.
 
 ## Installation and usage
-GELTOR is a similarity-based embedding method that applied listwise learning-to-rank to graph embedding. It is straightforward embedding method implemented by a simple deep neural network consisting of only a projection layer and an output layer.
+GELTOR is a similarity-based embedding method that applies the listwise learning-to-rank to graph embedding. It is straightforward embedding method implemented by a simple deep neural network consisting of only a projection layer and an output layer.
 In order to run GELTOR, the following packages are required:
 ```
 Python       >= 3.8
