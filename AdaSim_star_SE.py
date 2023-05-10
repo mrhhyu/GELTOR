@@ -39,15 +39,12 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     nodes = sorted(G.nodes())       # sorted list of all nodes        
     adj = nx.adjacency_matrix(G,nodelist=nodes, weight=None)      # V*V adjacency matrix
     print("# of nodes in graph: ",len(nodes))
-    nodes.clear()     
     if topK == -1: ## calculating topK for the input graph
         topK = round(G.number_of_edges()/G.number_of_nodes()) * 8
     topK = topK +1 ## a node itself is also considered in the topK list as the most similar one to itself
     degrees = adj.sum(axis=0).T   # V*1 matrix (a column vector of size V)        
     weights = csr_matrix(1/np.log(degrees+math.e))  # keep weights of nodes; V*1 matrix;
     weight_matrix = csr_matrix(adj.multiply(weights)) # V*V matrix; column i have the weight of i's in-neighbors
-    del degrees
-    del weights
 
     print('Iteration 1 ...')
     adamic_scores = weight_matrix + weight_matrix.T + damping_factor * weight_matrix.T * adj
@@ -84,12 +81,9 @@ def compute_only_AdaSim_star (graph='', iterations=0, damping_factor=0.8):
     nodes = sorted(G.nodes())       # sorted list of all nodes
     adj = nx.adjacency_matrix(G,nodelist=nodes, weight=None)      # V*V adjacency matrix
     print("# of nodes in graph: ",len(nodes))
-    nodes.clear()
     degrees = adj.sum(axis=0).T   # V*1 matrix (a column vector of size V)
     weights = csr_matrix(1/np.log(degrees+math.e))  # keep weights of nodes; V*1 matrix;
     weight_matrix = csr_matrix(adj.multiply(weights)) # V*V matrix; column i have the weight of i's in-neighbors
-    del degrees
-    del weights
 
     print('Iteration 1 ...')
     adamic_scores = weight_matrix + weight_matrix.T + damping_factor * weight_matrix.T * adj
