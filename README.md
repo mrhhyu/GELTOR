@@ -16,7 +16,7 @@ scikit-learn >=1.0.*
 
 GELTOR can be run directly from the command line or migrated to your favorite IDE.
 ## Graph file format
-A graph must be represented as a text file under the *edge list format* in which, each line corresponds to an edge in the graph, tab is used as the eliminator between two nodes, and the node index is started from 0. 
+A graph must be represented as a text file under the *edge list format* in which, each line corresponds to an edge in the graph, tab is used as the separator of the two nodes, and the node index is started from 0. 
 
 ## Running GELTOR
 
