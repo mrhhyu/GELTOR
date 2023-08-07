@@ -123,8 +123,8 @@ if __name__ == "__main__":
     '''
 
 
-    args = parse_args(graph='/home/masoud/backup_1/data/feature_learning/email_EU/dataset/train_test/email_EU_directed_graph.txt',
-                  dataset_name='email_EU',
+    args = parse_args(graph='data/DBLP/DBLP_directed_graph.txt.txt',
+                  dataset_name='DBLP',
                   result_dir='result_test/',
                   dimension=128,
                   topK=20,
