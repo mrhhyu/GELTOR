@@ -58,7 +58,7 @@ def LTRG(args):
         top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
     else:
         top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=-1, loss='listMLE_topK')#[0]
-        args.topk = len(top_indices)
+        args.topk = top_indices.shape[1]-1
 
     if not args.bch_mnl: # calculating batch size for the input graph
         args.bch = pow(2, round(math.log2(len(top_indices)*0.05)))
