@@ -64,7 +64,7 @@ def LTRG(args):
 
     print('==================================================================== GELTOR ARGUMENTS ====================================================================')
     print(args,'\n')
-    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(args.topk)
+    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(len(top_indices))
 
     print('===================================================================== Model Training ======================================================================')
     tf_input = tf.eye(len(top_indices), dtype='int32') # on-hot vectors as input
