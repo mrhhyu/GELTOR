@@ -58,13 +58,14 @@ def LTRG(args):
         top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
     else:
         top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=-1, loss='listMLE_topK')#[0]
+        args.topk = len(top_indices)
 
     if not args.bch_mnl: # calculating batch size for the input graph
         args.bch = pow(2, round(math.log2(len(top_indices)*0.05)))
 
     print('==================================================================== GELTOR ARGUMENTS ====================================================================')
     print(args,'\n')
-    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(len(top_indices))
+    info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(args.topk)
 
     print('===================================================================== Model Training ======================================================================')
     tf_input = tf.eye(len(top_indices), dtype='int32') # on-hot vectors as input
