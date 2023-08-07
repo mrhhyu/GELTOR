@@ -104,7 +104,7 @@ def parse_args(graph='',dataset_name='',result_dir='output/', dimension=128, top
     parser.add_argument('--topk', type=int, default=topK, help='Number of nodes in topK, default is -1')
     parser.add_argument('--itr', type=int, default=iterations, help='Number of Iterations to compute AdaSim*, default is 5')
     parser.add_argument('--epc', type=int, default=epochs, help='Number of Epochs for training, default is 300')
-    parser.add_argument('--bch_mnl', type=bool, default=topk_mnl, help='The flag indicating to input batch size manually or to calculate it automatically, default is False')
+    parser.add_argument('--bch_mnl', type=bool, default=bch_mnl, help='The flag indicating to input batch size manually or to calculate it automatically, default is False')
     parser.add_argument('--bch', type=int, default=batch_size, help='Number of examples in a batch, default is -1')
     parser.add_argument('--lr', type=float, default=learning_rate, help='Learning rate, default is 0.0025')
     parser.add_argument('--reg', type=float, default=reg_rate, help='Regularization parameter which is suggested to be 0.001 and 0.0001 with directed and undirected graphs, respectively; default is 0.001')
