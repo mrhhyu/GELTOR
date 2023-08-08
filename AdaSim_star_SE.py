@@ -41,7 +41,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     G = nx.read_edgelist(graph, create_using=nx.DiGraph(), nodetype = int)
     nodes = sorted(G.nodes())       # sorted list of all nodes        
     adj = nx.adjacency_matrix(G,nodelist=nodes, weight=None)      # V*V adjacency matrix
-    print("# of nodes in graph: ",len(nodes))
+    print("# of nodes in the graph: ",len(nodes))
     if topK == -1: ## calculating topK for the input graph
         topK = round(G.number_of_edges()/G.number_of_nodes()) * 8
         print("TopK is calculated and set as '{}' ...".format(topK)+'\n')        
