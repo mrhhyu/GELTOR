@@ -33,7 +33,10 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
             4- loss='listNET', the result is returned for listNET loss:
                 result_matrix is a |V|*|V| matrix contains the SoftMax (row-wise) of labels of each node regarding to a target node
     '''
-    print("Starting AdaSim* with '{}' on '{}' iterations, top '{}', and C '{}'...".format(graph,iterations,topK,damping_factor)+'\n')
+    if topK != -1:
+        print("Starting AdaSim* with '{}' on '{}' iterations, top '{}', and C '{}'...".format(graph,iterations,topK,damping_factor)+'\n')
+    else:
+        print("Starting AdaSim* with '{}' on '{}' iterations, and C '{}'...".format(graph,iterations,damping_factor)+'\n')        
 
     G = nx.read_edgelist(graph, create_using=nx.DiGraph(), nodetype = int)
     nodes = sorted(G.nodes())       # sorted list of all nodes        
@@ -41,6 +44,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     print("# of nodes in graph: ",len(nodes))
     if topK == -1: ## calculating topK for the input graph
         topK = round(G.number_of_edges()/G.number_of_nodes()) * 8
+        print("TopK is calculated and set as '{}' ...".format(topK)+'\n')        
     topK = topK +1 ## a node itself is also considered in the topK list as the most similar one to itself
     degrees = adj.sum(axis=0).T   # V*1 matrix (a column vector of size V)        
     weights = csr_matrix(1/np.log(degrees+math.e))  # keep weights of nodes; V*1 matrix;
