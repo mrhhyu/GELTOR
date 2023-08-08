@@ -19,6 +19,6 @@ def get_listMLE_topK(result_matrix, topK):
         target_node_res_sorted = np.argsort(result_matrix[target_node,:].toarray()[0], axis=0)[::-1][:topK]  ## sorting the indices on descending order of similarity values and return the topk
         top_indices[target_node] = target_node_res_sorted.copy()
         top_simvals[target_node] = np.take(result_matrix[target_node,:].toarray()[0],target_node_res_sorted.copy()) ## Take indicated elements from the result_matrix.
-    print ("Top {} similar nodes are fetched ... ".format(topK))
+    print ("Top {} similar nodes are fetched ... ".format(topK-1))
     return top_indices,top_simvals
 
