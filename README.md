@@ -26,12 +26,10 @@ GELTOR has the following parameters:
 --dataset_name: dataset name 
 --result_dir: Destination to save the embedding result, default is "output/" in the root directory 
 --dim: The embedding dimension, default is 128 
---topk_mnl: The flag indicating to input topK value manually or to calculate it automatically, default is False 
---topk: Number of nodes in topK, default is -1 
+--topk: Number of nodes in topK; default is -1 (i.e., topK is automatically computed as explained in the paper), otherwise input the value manually 
 --itr: Number of Iterations to compute AdaSim*, default is 5 
 --epc: Number of Epochs for training, default is 300 
---bch_mnl: The flag indicating to input batch size manually or to calculate it automatically, default is False 
---bch: Number of examples in a batch, default is -1 
+--bch: batch size, default is -1 (i.e., it is automatically computed as explained in the paper), otherwise input the value manually 
 --lr: Learning rate, default is 0.0025 
 --reg: Regularization parameter which is suggested to be 0.001 and 0.0001 with directed and undirected graphs, respectively; default is 0.001 
 --early_stop: The flag indicating to stop the training process if the loss stops improving, default is True 
