@@ -44,7 +44,12 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     print("# of nodes in the graph: ",len(nodes))
     if topK == -1: ## calculating topK for the input graph
         topK = round(G.number_of_edges()/G.number_of_nodes()) * 8
-        print("TopK is calculated and set as '{}' ...".format(topK)+'\n')        
+        print("TopK is calculated and set as '{}' ...".format(topK)+'\n') 
+        if G.number_of_nodes()<=topK: ## graph has few nubmder of nodes
+            print('*** topK {} is larger than the number of nodes in the graph! set the topK value manually ***'.format(topK))
+            print('')
+            return 
+        
     topK = topK +1 ## a node itself is also considered in the topK list as the most similar one to itself
     degrees = adj.sum(axis=0).T   # V*1 matrix (a column vector of size V)        
     weights = csr_matrix(1/np.log(degrees+math.e))  # keep weights of nodes; V*1 matrix;
