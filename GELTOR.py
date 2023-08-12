@@ -48,7 +48,7 @@ def LTRG(args):
         os.environ["CUDA_VISIBLE_DEVICES"] = "-1" ## disabling GPU
 
     print('================================================================= Similarity Computation =================================================================')
-    top_indices,top_simvals,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
+    top_indices,args.topk = compute_AdaSim_star(graph=args.graph, iterations=args.itr, damping_factor=0.4, topK=args.topk, loss='listMLE_topK')#[0]
 
     if args.bch==-1: # calculating batch size for the input graph
         args.bch = pow(2, round(math.log2(len(top_indices)*0.05)))
