@@ -44,10 +44,13 @@ GELTOR has the following parameters:
 
 ### Sample:
 1) **topk** and **bch** parameters are set _automatically_
+
 ```
 python GELTOR.py --graph data/DBLP/DBLP_directed_graph.txt --dataset_name DBLP
 ```
+
 2) **topk** and **bch** parameters are set _manually_
+
 ```
 python GELTOR.py --graph data/DBLP/DBLP_directed_graph.txt --dataset_name DBLP --topk 50 --bch 256
 ```
