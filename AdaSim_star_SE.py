@@ -64,7 +64,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
     result_matrix.setdiag(1)
     if iterations == 1:
         if loss=='listMLE_topK':
-            top_indices,top_simvals = prData.get_listMLE_topK(result_matrix,topK)
+            top_indices = prData.get_listMLE_topK(result_matrix,topK)
             return top_indices,topK-1
 
     weight_matrix = normalize(weight_matrix, norm='l1', axis=0) # column normalized weight_matrix    
@@ -76,7 +76,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
 
     if loss=='listMLE_topK':
         result_matrix.setdiag(1) ## set back diagonal values to one
-        top_indices,top_simvals = prData.get_listMLE_topK(result_matrix,topK)
+        top_indices = prData.get_listMLE_topK(result_matrix,topK)
         return top_indices,topK-1
                 
 
