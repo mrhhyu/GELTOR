@@ -21,6 +21,7 @@ A graph must be represented as a text file under the *edge list format* in which
 ## Running GELTOR
 
 GELTOR has the following parameters: 
+
 ```
 --graph: Input graph
 
