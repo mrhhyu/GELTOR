@@ -22,18 +22,30 @@ A graph must be represented as a text file under the *edge list format* in which
 
 GELTOR has the following parameters: 
 ```
---graph: Input graph 
---dataset_name: dataset name 
---result_dir: Destination to save the embedding result, default is "output/" in the root directory 
---dim: The embedding dimension, default is 128 
---topk: Number of nodes in topK; default is -1 (i.e., topK is automatically computed as explained in the paper), otherwise set the value manually 
---itr: Number of Iterations to compute AdaSim*, default is 5 
---epc: Number of Epochs for training, default is 300 
---bch: batch size, default is -1 (i.e., it is automatically computed as explained in the paper), otherwise set the value manually 
---lr: Learning rate, default is 0.0025 
---reg: Regularization parameter which is suggested to be 0.001 and 0.0001 with directed and undirected graphs, respectively; default is 0.001 
---early_stop: The flag indicating to stop the training process if the loss stops improving, default is True 
---wait_thr: Number of epochs with no loss improvement after which the training will be stopped, default is 20 
+--graph: Input graph
+
+--dataset_name: dataset name
+
+--result_dir: Destination to save the embedding result, default is "output/" in the root directory
+
+--dim: The embedding dimension, default is 128
+
+--topk: Number of nodes in topK; default is -1 (i.e., topK is automatically computed as explained in the paper), otherwise set the value manually
+
+--itr: Number of Iterations to compute AdaSim*, default is 5
+
+--epc: Number of Epochs for training, default is 300
+
+--bch: batch size, default is -1 (i.e., it is automatically computed as explained in the paper), otherwise set the value manually
+
+--lr: Learning rate, default is 0.0025
+
+--reg: Regularization parameter which is suggested to be 0.001 and 0.0001 with directed and undirected graphs, respectively; default is 0.001
+
+--early_stop: The flag indicating to stop the training process if the loss stops improving, default is True
+
+--wait_thr: Number of epochs with no loss improvement after which the training will be stopped, default is 20
+
 --gpu: The flag indicating to run GELTOR on GPU, default is True
 ```
 
