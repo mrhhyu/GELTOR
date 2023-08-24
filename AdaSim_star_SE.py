@@ -1,8 +1,8 @@
 '''
 Created on July 7, 2022
 
-Implementation of AdaSim* for using in graph embeddings.
-This Implementation can also be used to compute only AdaSim* scores (i.e., "compute_only_AdaSim_star")
+Implementation of AdaSim*.
+This Implementation can also be used to compute only AdaSim* scores (i.e., "compute_only_AdaSim_star" method)
 
 @author: masoud
 '''
