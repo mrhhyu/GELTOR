@@ -1,8 +1,8 @@
 '''
 Created on July 7, 2022
 
-Implementation of AdaSim* along with the data preparing for the learning process
-This Implementation can also be used to compute only AdaSim* scores (i.e., "compute_only_AdaSim_star" method)
+Implementation of AdaSim* along with the data preparing for the learning process (i.e., compute_AdaSim_star)
+Implementation of only AdaSim* similarity measure (i.e., "compute_only_AdaSim_star" method)
 
 @author: masoud
 '''
