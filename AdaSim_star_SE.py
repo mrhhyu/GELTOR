@@ -1,7 +1,7 @@
 '''
-Created on July 7, 2022;
+Created on July 7, 2022
 
-Implementation of AdaSim*.
+Implementation of AdaSim* along with the data preparing for the learning process
 This Implementation can also be used to compute only AdaSim* scores (i.e., "compute_only_AdaSim_star" method)
 
 @author: masoud
@@ -82,7 +82,7 @@ def compute_AdaSim_star (graph='', iterations=0, damping_factor=0.8, topK=0, los
 
 def compute_only_AdaSim_star (graph='', iterations=0, damping_factor=0.8):
     '''
-        Computes AdaSim* measure
+        Computes AdaSim* similarity measure
     '''
     print("Starting AdaSim* with '{}' on '{}' iterations, and C '{}'...".format(graph,iterations,damping_factor)+'\n')
 
