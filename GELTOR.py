@@ -36,7 +36,7 @@ def get_model(dim,out_len, learning_rate, reg_rate):
     model.compile(optimizer = tf.keras.optimizers.RMSprop(learning_rate), loss = ListMLELoss_topK(), run_eagerly = True) # run_eagerly=True --> to enable getting Tensor values via .numpy()
     return model
 
-def LTRG(args):
+def GELTOR(args):
     print()
     if not os.path.exists(args.graph):
         print('ERROR: graph is invalid ...!')
@@ -111,7 +111,7 @@ def parse_args(graph='',dataset_name='',result_dir='output/', dimension=128, top
 if __name__ == "__main__":
 
     args = parse_args()
-    LTRG(args)
+    GELTOR(args)
 
     '''
 
@@ -130,7 +130,7 @@ if __name__ == "__main__":
                   wait_thr=20,
                   gpu_on=True
                   )
-    LTRG(args)
+    GELTOR(args)
 
 
     '''
