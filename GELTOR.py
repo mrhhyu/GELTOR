@@ -62,7 +62,7 @@ def GELTOR(args):
     info = args.result_dir+args.dataset_name+'_GELTOR_IT'+str(args.itr)+'_Reg'+str(args.reg).split('.')[1]+'_dim'+str(args.dim)+'_bch'+str(args.bch)+'_Top'+str(args.topk)
 
     print('===================================================================== Model Training ======================================================================')
-    tf_input = tf.eye(len(top_indices), dtype='int32') # on-hot vectors as input
+    tf_input = tf.eye(len(top_indices), dtype='int32') # one-hot vectors as input
     model = get_model(int(args.dim/2), len(top_indices), args.lr, args.reg)
     if args.early_stop: ## apply early stopping
         callback_EarlyStopping = tf.keras.callbacks.EarlyStopping(monitor='loss', patience=args.wait_thr, mode='min', restore_best_weights=True) ## defines a callback for early stop
