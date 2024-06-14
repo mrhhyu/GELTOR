@@ -8,10 +8,10 @@ In order to run GELTOR, the following packages are required:
 ```
 Python       >= 3.8
 tensorflow   >= 2.2
-networkx     >=2.6.*
-numpy        >=1.21.*
-scipy        >=1.7.*
-scikit-learn >=1.0.*
+networkx     =2.6.*
+numpy        =1.21.*
+scipy        =1.7.*
+scikit-learn =1.0.*
 ```
 
 GELTOR can be run directly from the command line or migrated to your favorite IDE.
