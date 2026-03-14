@@ -17,6 +17,7 @@ class ListMLELoss_topK(Loss):
             @param y_true: indexes of Top-k nodes 
             @param y_pred: output of the DNN
         '''
+        y_true = tf.cast(y_true, tf.int32) ## for compatibility with higher versions of TensorFlow
         raw_max = tf.reduce_max(input_tensor=y_pred, axis=1, keepdims=True)
         y_pred = y_pred - raw_max   
         sum_all = tf.reduce_sum(input_tensor=tf.exp(y_pred), axis=1, keepdims=True) # summation of exp(x) for all values;
